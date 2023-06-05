@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchUsers, toggleFollowingUsers } from "./users-operations";
+import { fetchUsers, toggleFollowingUsers } from './users-operations';
 
 const initialState = {
   items: [],
@@ -10,9 +10,13 @@ const initialState = {
 };
 
 const usersSlice = createSlice({
-  name: "contacts",
+  name: 'users',
   initialState,
   reducers: {
+    setEmptyItems(store, { payload }) {
+      store.items = payload;
+      store.following = payload;
+    },
     togglePayload(store, { payload }) {
       const index = store.following.findIndex(({ id }) => id === payload.id);
       if (index !== -1) {
@@ -22,9 +26,9 @@ const usersSlice = createSlice({
       }
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchUsers.pending, (store) => {
+      .addCase(fetchUsers.pending, store => {
         store.isLoading = true;
       })
       .addCase(fetchUsers.fulfilled, (store, { payload }) => {
@@ -38,7 +42,7 @@ const usersSlice = createSlice({
         store.isLoading = false;
         store.error = payload;
       })
-      .addCase(toggleFollowingUsers.pending, (store) => {
+      .addCase(toggleFollowingUsers.pending, store => {
         store.isLoading = true;
       })
       .addCase(toggleFollowingUsers.fulfilled, (store, { payload }) => {
@@ -52,4 +56,5 @@ const usersSlice = createSlice({
   },
 });
 
+export const { setEmptyItems } = usersSlice.actions;
 export default usersSlice.reducer;
