@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_tweets_app=self.webpackChunkmy_tweets_app||[]).push([[156],{6156:function(e,s,t){t.r(s),t.d(s,{default:function(){return r}});var a="HomePage_section__QO2n7",n="HomePage_container__ONGTf",c="HomePage_pageTitle__1wBhT",i=t(184),r=function(){return(0,i.jsx)("div",{className:a,children:(0,i.jsx)("div",{className:n,children:(0,i.jsxs)("h1",{className:c,children:["Welcome ",(0,i.jsx)("br",{}),"to my first test app"]})})})}}}]);
+//# sourceMappingURL=156.217cf411.chunk.js.map
